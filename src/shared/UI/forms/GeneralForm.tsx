@@ -41,12 +41,13 @@ const GeneralForm: FC<iInput> = ({ nameButton, children }) => {
                 onSubmit={metods.handleSubmit(onSubmit)}
                 sx={{
                     display: "flex", flexDirection: "column",
-                    '.MuiTextField-root': { m: 1, width: 300, color: "primary" },
-                    alignSelf: "center",
+                    '.MuiTextField-root': { m: 1, width: 300, color: "info" },
+                    alignSelf: "center", backgroundColor: "#121212",
+                    boxShadow: "0px 0px 5px 5px #202020"
                 }}>
                 {children}
                 <Stack component="div" alignItems="flex-end" sx={{ m: 1 }}>
-                    <Button variant="contained" type="submit">{nameButton}</Button>
+                    <Button variant="contained" color="info" type="submit">{nameButton}</Button>
                 </Stack>
             </Box >
         </FormProvider >
