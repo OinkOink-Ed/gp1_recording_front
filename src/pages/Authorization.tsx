@@ -1,20 +1,22 @@
 import { FC } from "react";
-import { AppBar, Button, IconButton } from "@mui/material";
+import { AppBar, autocompleteClasses, Button, IconButton } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital'
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Container from "@mui/material/Container";
 
 const Authorization: FC = () => {
     return (
-        <Container maxWidth={false} disableGutters>
+        <Container
+            maxWidth={false}
+            disableGutters
+            sx={{ display: "flex", flexDirection: "column", height: "100vh", backgroundColor: "#121212" }}>
             <AppBar
-                position="static"
-                color="primary">
+                position="static">
                 <Toolbar sx={{ justifyContent: "space-between", alignItems: "center" }}>
-                    <Link to="/authorization">
+                    <Link to="/">
                         <IconButton>
                             <LocalHospitalIcon fontSize="large" color="error" />
                         </IconButton>
@@ -26,12 +28,31 @@ const Authorization: FC = () => {
                         Сервис записи на обучение ГП №1 г.Сочи
                     </Typography>
                     <Box sx={{ '& .MuiButton-contained': { margin: 1 }, display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-                        <Button variant="contained" color="success">Войти</Button>
-                        <Button variant="contained" color="info">Регистрация</Button>
+                        <Link to="login" relative="route">
+                            <Button variant="contained" color="success">Вход</Button>
+                        </Link>
+                        <Link to="registration" relative="route">
+                            <Button variant="contained" color="info">Регистрация</Button>
+                        </Link>
                     </Box>
                 </Toolbar>
             </AppBar>
-            {/* <Outlet /> */}
+            <Container disableGutters sx={{ display: "flex", flexGrow: 1, justifyContent: "center" }}>
+                <Outlet />
+            </Container>
+            <AppBar
+                position="static"
+                color="primary"
+                sx={{ top: "auto", bottom: "0" }}>
+                <Toolbar>
+                    <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{ display: "flex", flexGrow: 1, justifyContent: "center", textAlign: "center", fontSize: { xs: "1rem", md: "1.25rem" } }}>
+                        По вопросам улучшения обращаться по номеру: 8-952-836-06-42
+                    </Typography>
+                </Toolbar>
+            </AppBar>
         </Container >
     );
 };
