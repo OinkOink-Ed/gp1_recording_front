@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { AppBar, autocompleteClasses, Button, IconButton } from "@mui/material";
+import { AppBar, Button, IconButton } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
